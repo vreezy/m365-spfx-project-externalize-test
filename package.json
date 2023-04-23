@@ -1,0 +1,16 @@
+{
+  "name": "m365-spfx-project-externalize-test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.15.13",
+    "typescript": "^5.0.4"
+  }
+}
