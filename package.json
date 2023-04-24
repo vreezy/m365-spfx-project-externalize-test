@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
+    "x": "npx tsc && node analyze.js ../sp-dev-fx-webparts/samples/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

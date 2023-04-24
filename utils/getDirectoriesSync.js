@@ -23,41 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getDirectoriesSync = void 0;
 var fs = __importStar(require("fs"));
-var source = "samples";
-var target = "dist";
-var getDirectories = function (source) {
+function getDirectoriesSync(source) {
     return fs.readdirSync(source, { withFileTypes: true })
         .filter(function (dirent) { return dirent.isDirectory(); })
         .map(function (dirent) { return dirent.name; });
-};
-var targetFolders = getDirectories(source);
-// create target
-fs.mkdirSync(target, { recursive: true });
-targetFolders.forEach(function (folder) {
-    // create target
-    fs.mkdirSync("".concat(target, "/").concat(folder), { recursive: true });
-    fs.copyFile("".concat(source, "/").concat(folder, "/.yo-rc.json"), "".concat(target, "/").concat(folder, "/.yo-rc.json"), function (err) {
-        if (err) {
-            console.log(err);
-        }
-        // throw err;
-        //console.log('source.txt was copied to destination.txt');
-    });
-    fs.copyFile("".concat(source, "/").concat(folder, "/package.json"), "".concat(target, "/").concat(folder, "/package.json"), function (err) {
-        //if (err) throw err;
-        // console.log('source.txt was copied to destination.txt');
-    });
-    try {
-        if (fs.existsSync("".concat(target, "/").concat(folder, "/package.json")) && fs.existsSync("".concat(target, "/").concat(folder, "/.yo-rc.json"))) {
-            // file exists
-        }
-        else {
-            // delete folder. we don't need
-            fs.rmSync("".concat(target, "/").concat(folder), { recursive: true, force: true });
-        }
-    }
-    catch (err) {
-        console.error(err);
-    }
-});
+}
+exports.getDirectoriesSync = getDirectoriesSync;
