@@ -24,16 +24,46 @@ finally you should have this folder structure then:
   npm install
 ```
 
-## Build
+## Analyze
+
+Uninstall Globla cli m365
+
+```bash
+  npm uninstall -g @pnp/cli-microsoft365
+```
+
+test the "m365" command should be not be found.
+
+Go to cli-microsoft365 and
+
+```bash
+  npm install 
+```
+
+OR
+
+open in devCointainer with Docker
+
+make some changes on the externalize command
 
 ```bash
   npm run build
 ```
 
-## xxx
+go with your node shell in the cli-microsoft365/dist directory
 
 ```bash
-  npm 
+  npm link
 ```
 
-node copy.js ../sp-dev-fx-webparts/samples/
+now the "m365" command should work again globally.
+
+go to "m365-spfx-project-externalize-test"
+
+```bash
+  npm run analyze
+```
+
+## Output
+
+the "out" Directory will be generated
